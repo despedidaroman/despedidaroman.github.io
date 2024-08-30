@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despedida de Román</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ce1126 33.33%, #f8cd0e 33.33%, #f8cd0e 66.66%, #ce1126 66.66%);
+            text-align: center;
+            position: relative; /* For positioning the menu */
+        }
+
+        .controls button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid #333;
+        }
+
+        /* Menu styles */
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 10; /* Ensure it stays on top */
+        }
+
+        .menu-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #8B0000; /* Dark Red color */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 60px; /* Adjusted for the circle */
+            background-color: #f9f9f9;
+            min-width: 300px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .menu:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Circle container styles */
+        .circle-container {
+            background-color: white;
+            border-radius: 50%;
+            padding: 40px;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden; /* Ensure star doesn't overflow */
+        }
+        
+        .circle-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .circle-container p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .circle-container img {
+            margin-bottom: 10px;
+        }
+
+        /* Hidden text */
+        #hiddenText {
+            display: none;
+        }
+
+        /* Star styles */
+        #star {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0) rotate(0deg);
+            width: 0;
+            height: 0;
+            z-index: 5;
+            background-color: yellow;
+            clip-path: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+            );
+            transition: transform 1.5s cubic-bezier(0.25, 1.5, 0.5, 1), width 1.5s, height 1.5s;
+        }
+
+        /* Text inside the star */
+        #starText {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: black;
+            text-align: center;
+            width: 200px; /* Adjust width as needed */
+            height: auto;
+            z-index: 6; /* Ensure it's above the star */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s;
+        }
+
+        /* Enlarged dark green button */
+        #spinButton {
+            background-color: #006847; /* Dark green like the Mexican flag */
+            color: white;
+            font-size: 24px; /* Larger font size */
+            padding: 20px 40px; /* Larger padding */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #spinButton:hover {
+            background-color: #004d34; /* Slightly darker on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <div class="menu-icon">
+            ☰
+        </div>
+        <div class="dropdown-content">
+            <a href="./index.html">Home Page</a>
+            <a href="./aboutroman.html">Quién es Román?</a>
+            <a href="./aboutwedding.html">Por qué se casa?</a>
+            <a href="./aboutteam.html">Equipo despedida</a>
+            <a href="./ruletaretos.html">Ruleta de retos!</a>
+            <a href="./shop.html">Tienda</a>
+        </div>
+    </div>
+
+    <div class="circle-container">
+        <h1>Por qué se casa Román?</h1>
+        <img src="./assets/roman2.jpg" alt="Román">
+        <p>Haz click en el botón para averiguarlo!</p>
+        <button id="spinButton">Averígualo!</button>
+        <p id="hiddenText">Para tener la mejor despedida de soltero de la historia!!</p>
+        <div id="star"></div>
+        <div id="starText">Para tener la mejor despedida de soltero de la historia!!</div>
+    </div>
+
+    <script>
+        document.getElementById('spinButton').addEventListener('click', function() {
+            const star = document.getElementById('star');
+            const starText = document.getElementById('starText');
+            const hiddenText = document.getElementById('hiddenText');
+
+            // Start the star animation
+            star.style.width = '450px';  // Increased size
+            star.style.height = '450px'; // Increased size
+            star.style.transform = 'translate(-50%, -50%) scale(1) rotate(720deg)';
+
+            // After the animation ends, show the hidden text inside the star
+            setTimeout(function() {
+                starText.style.opacity = '1'; // Show text with a fade-in effect
+                hiddenText.style.display = 'none'; // Keep the hidden text hidden to avoid duplication
+            }, 1500); // Match the duration of the animation
+        });
+
+        // Add event listeners to handle touch events on the menu
+        const menu = document.querySelector('.menu');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        menu.addEventListener('touchstart', (e) => {
+            dropdownContent.style.display = 'block';
+            // Disable pointer events on canvas when menu is being interacted with
+            canvas.style.pointerEvents = 'none';
+        });
+
+        document.addEventListener('touchend', (e) => {
+            // Check if the touch event is outside the menu
+            if (!menu.contains(e.target)) {
+                dropdownContent.style.display = 'none';
+                // Enable pointer events on canvas when menu interaction ends
+                canvas.style.pointerEvents = 'auto';
+            }
+        });
+    </script>
+
+</body>
+</html>

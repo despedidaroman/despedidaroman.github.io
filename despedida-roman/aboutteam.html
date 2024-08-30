@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despedida de Román</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ce1126 33.33%, #f8cd0e 33.33%, #f8cd0e 66.66%, #ce1126 66.66%); /* Mexican flag background */
+            text-align: center;
+            position: relative; /* For positioning the menu */
+            padding-top: 60px; /* Add some padding to ensure the first circle is fully visible */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .controls button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid #333;
+        }
+
+        /* Menu styles */
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 10; /* Ensure it stays on top */
+        }
+
+        .menu-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #8B0000; /* Dark Red color */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 60px; /* Adjusted for the circle */
+            background-color: #f9f9f9;
+            min-width: 300px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Circle container styles */
+        .circle-container {
+            background-color: white;
+            border-radius: 50%;
+            padding: 40px;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            margin-bottom: 40px; /* Add some space between the circles */
+        }
+        
+        .circle-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .circle-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .circle-container p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .circle-container img {
+            margin-bottom: 10px;
+        }
+
+        /* Instagram icon style */
+        .instagram-icon {
+            width: 30px;
+            height: 30px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <div class="menu-icon">
+            ☰
+        </div>
+        <div class="dropdown-content">
+            <a href="./index.html">Home Page</a>
+            <a href="./aboutroman.html">Quién es Román?</a>
+            <a href="./aboutwedding.html">Por qué se casa?</a>
+            <a href="./aboutteam.html">Equipo despedida</a>
+            <a href="./ruletaretos.html">Ruleta de retos!</a>
+            <a href="./shop.html">Tienda</a>
+        </div>
+    </div>
+
+    <h1>Equipo Despedida!</h1>
+    <div class="circle-container">
+        <h1>Betto</h1>
+        <img src="./assets/betto.jpeg" alt="Betto">
+        <p>Desarrollo web y entretenimiento.</p>
+        <a href="https://www.instagram.com/albertgran/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Kuko</h1>
+        <img src="./assets/kuko.jpg" alt="Kuko">
+        <p>Organización y eventos.</p>
+        <a href="https://www.instagram.com/kukorodriguez93/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Jose</h1>
+        <img src="./assets/jose.jpeg" alt="Jose">
+        <p>Comercio y bebercio.</p>
+        <a href="https://www.instagram.com/jcasals18/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Fer</h1>
+        <img src="./assets/fer.jpeg" alt="Fer">
+        <p>Arbitraje y aventuras.</p>
+        <a href="https://www.instagram.com/daniolmo/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Guille</h1>
+        <img src="./assets/guille.jpeg" alt="Guille">
+        <p>HR y relaciones internacionales.</p>
+        <a href="https://www.instagram.com/guillermo.martinez_ubierna/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Cano</h1>
+        <img src="./assets/cano.jpg" alt="Cano">
+        <p>Videos y masajes.</p>
+        <a href="https://www.instagram.com/jcanolarumbe/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Edu</h1>
+        <img src="./assets/edu.jpeg" alt="Edu">
+        <p>Ojeador de materias primas.</p>
+        <a href="https://www.instagram.com/ecodinas/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const circleContainers = document.querySelectorAll('.circle-container');
+            const menuIcon = document.querySelector('.menu-icon');
+            const dropdownContent = document.querySelector('.dropdown-content');
+
+            const handleScroll = () => {
+                circleContainers.forEach(container => {
+                    const rect = container.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        container.classList.add('show');
+                    } else {
+                        container.classList.remove('show');
+                    }
+                });
+            };
+
+            // Trigger on scroll
+            window.addEventListener('scroll', handleScroll);
+
+            // Trigger on page load
+            handleScroll();
+
+            // Toggle dropdown on menu icon click
+            menuIcon.addEventListener('click', function() {
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Optionally, close dropdown when clicking outside of it
+            document.addEventListener('click', function(event) {
+                if (!menuIcon.contains(event.target) && !dropdownContent.contains(event.target)) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
